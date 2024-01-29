@@ -2,27 +2,23 @@ package hexlet.code;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "1.0",
         description = "Compares two configuration files and shows a difference.")
 public class App implements Runnable {
 
-    @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
-    private boolean helpRequested;
+    @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format [default: stylish]")
+    private String format;
 
-    @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
-    private boolean versionRequested;
+    @Parameters(paramLabel = "filepath1", description = "path to first file")
+    private String filepath1;
+
+    @Parameters(paramLabel = "filepath2", description = "path to second file")
+    private String filepath2;
 
     @Override
     public void run() {
-        if (helpRequested) {
-            CommandLine.usage(this, System.out);
-        } else if (versionRequested) {
-            CommandLine versionCommand = new CommandLine(this.getClass());
-            versionCommand.printVersionHelp(System.out);
-        } else {
-            // Add your logic for comparing two configuration files here
-        }
     }
 
     public static void main(String[] args) {
