@@ -3,4 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/799baa6542d6f91f7791/maintainability)](https://codeclimate.com/github/fedorovaea18/java-project-71/maintainability)
 
 ### Сравнение двух JSON файлов
-[![asciicast](https://asciinema.org/a/h5TGSY8HlldZaNwDba0elSpDi) 
+[![asciicast](https://asciinema.org/a/aWUOS8Ir5IL3WbCNW0cs03aXs.svg)](https://asciinema.org/a/aWUOS8Ir5IL3WbCNW0cs03aXs)
