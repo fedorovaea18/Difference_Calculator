@@ -4,17 +4,12 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Map;
+import java.io.File;
 import java.util.concurrent.Callable;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "1.0",
         description = "Compares two configuration files and shows a difference.")
-class App implements Callable<String> {
+class App implements Callable<Integer> {
 
     @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format [default: stylish]")
     private String format;
@@ -32,17 +27,11 @@ class App implements Callable<String> {
     private String filepath2;
 
     @Override
-    public String call() throws Exception {
-        Path path1 = Paths.get(filepath1).toAbsolutePath().normalize();
-        Path path2 = Paths.get(filepath2).toAbsolutePath().normalize();
-        String contentFile1 = Files.readString(path1);
-        String contentFile2 = Files.readString(path2);
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> map1 = mapper.readValue(contentFile1, Map.class);
-        Map<String, Object> map2 = mapper.readValue(contentFile2, Map.class);
-        String diff = Differ.generate(map1, map2);
-        System.out.println(diff);
-        return diff;
+    public Integer call() throws Exception {
+        File file1 = new File("./src/test/resources/json1.json");
+        File file2 = new File("./src/test/resources/json2.json");
+        System.out.println(Differ.generate(file1, file2));
+        return 0;
     }
 
     public static void main(String[] args) {

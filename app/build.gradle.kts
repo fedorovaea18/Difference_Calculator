@@ -1,6 +1,7 @@
 plugins {
     application
     checkstyle
+    jacoco
 }
 
 group = "hexlet.code"
@@ -20,13 +21,17 @@ application {
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.4")
     implementation ("info.picocli:picocli:4.7.5")
-    implementation ("com.fasterxml.jackson.core:jackson-databind:2.14.0-rc1")
-    implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.4")
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.14.2")
+    implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2")
 }
 
 tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
 }
 
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+}
