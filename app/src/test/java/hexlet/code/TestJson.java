@@ -1,4 +1,5 @@
-import hexlet.code.Differ;
+package hexlet.code;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -41,13 +42,12 @@ public class TestJson {
 
     @Test
     public void testDifferThree() throws IOException {
-        String path1 = "./src/test/resources/json1.json";
+        String path1 = "./src/test/resources/json2.json";
         String pathEmpty = "./src/test/resources/empty.json";
         String result = "{\n"
-                + "+ follow: false\n"
                 + "+ host: hexlet.io\n"
-                + "+ proxy: 123.234.53.22\n"
-                + "+ timeout: 50\n"
+                + "+ timeout: 20\n"
+                + "+ verbose: true\n"
                 + "}";
         File file1 = new File(path1);
         File fileEmpty = new File(pathEmpty);

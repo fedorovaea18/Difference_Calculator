@@ -16,24 +16,24 @@ public class Differ {
         Map<String, Object> resultMap = new TreeMap<>();
         resultMap.putAll(map);
         resultMap.putAll(map2);
-        String result = "{\n";
-        for (String key: resultMap.keySet()) {
+        StringBuilder result = new StringBuilder("{\n");
+        for (String key : resultMap.keySet()) {
             if (map.containsKey(key)) {
                 if (!map2.containsKey(key)) {
-                    result += "- " + key + ": " + resultMap.get(key) + "\n";
+                    result.append("- ").append(key).append(": ").append(resultMap.get(key)).append("\n");
                 } else if (resultMap.get(key).equals(map.get(key))) {
-                    result += "  " + key + ": " + resultMap.get(key) + "\n";
+                    result.append("  ").append(key).append(": ").append(resultMap.get(key)).append("\n");
                 } else {
-                    result += "- " + key + ": " + map.get(key) + "\n";
-                    result += "+ " + key + ": " + resultMap.get(key) + "\n";
+                    result.append("- ").append(key).append(": ").append(map.get(key)).append("\n");
+                    result.append("+ ").append(key).append(": ").append(resultMap.get(key)).append("\n");
                 }
             } else if (map2.containsKey(key)) {
-                result += "+ " + key + ": " + resultMap.get(key) + "\n";
+                result.append("+ ").append(key).append(": ").append(resultMap.get(key)).append("\n");
             } else {
-                result += "- " + key + ": " + resultMap.get(key) + "\n";
+                result.append("- ").append(key).append(": ").append(resultMap.get(key)).append("\n");
             }
         }
-        result += "}";
-        return result;
+        result.append("}");
+        return result.toString();
     }
 }

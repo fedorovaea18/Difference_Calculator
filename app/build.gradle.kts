@@ -20,11 +20,13 @@ application {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.4")
+    testImplementation("org.junit.platform:junit-platform-launcher:1.8.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.4")
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
     implementation ("info.picocli:picocli:4.7.5")
     implementation ("com.fasterxml.jackson.core:jackson-databind:2.14.2")
-    implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2")
+    //implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2")
 }
 
 tasks.test {
@@ -33,5 +35,9 @@ tasks.test {
 }
 
 tasks.jacocoTestReport {
-    dependsOn(tasks.test) // tests are required to run before generating the report
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+    }
 }

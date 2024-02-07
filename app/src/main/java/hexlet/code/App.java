@@ -4,7 +4,8 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "1.0",
@@ -28,9 +29,9 @@ class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        File file1 = new File("./src/test/resources/json1.json");
-        File file2 = new File("./src/test/resources/json2.json");
-        System.out.println(Differ.generate(file1, file2));
+        Path file1 = Paths.get(filepath1).toAbsolutePath().normalize();
+        Path file2 = Paths.get(filepath2).toAbsolutePath().normalize();
+        System.out.println(Differ.generate(file1.toFile(), file2.toFile()));
         return 0;
     }
 
