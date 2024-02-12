@@ -11,12 +11,12 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComparisonTest {
-     @Test
+    @Test
     public void testGenerate() throws IOException {
         String file1Path = "src/test/resources/filepath1.json";
         String file2Path = "src/test/resources/filepath2.json";
 
-         String expected = "{\n    "
+        String expected = "{\n    "
                  + "chars1: [a, b, c]\n  "
                  + "- chars2: [d, e, f]\n  "
                  + "+ chars2: false\n  "
@@ -69,5 +69,4 @@ public class ComparisonTest {
 
         Differ.compareMaps(data1, data2, differences, "");
     }
-
 }

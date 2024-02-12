@@ -42,11 +42,17 @@ public class Stylish {
                             break;
 
                         case "removed":
-                            result.append(REMOVED_SYMBOL).append(key).append(": ").append(diff.get("value")).append("\n");
+                            result.append(REMOVED_SYMBOL)
+                                    .append(key).append(": ")
+                                    .append(diff.get("value"))
+                                    .append("\n");
                             break;
 
                         case "unchanged":
-                            result.append(UNCHANGED_SYMBOL).append(key).append(": ").append(diff.get("value")).append("\n");
+                            result.append(UNCHANGED_SYMBOL)
+                                    .append(key).append(": ")
+                                    .append(diff.get("value"))
+                                    .append("\n");
                             break;
                         default:
                             throw new Error("Unknown type");

@@ -67,7 +67,8 @@ public class Differ {
                     differences.add(unchangedMap);
                 } else if (value1 == null || !value1.equals(value2)) {
                     if (value1 instanceof Map && value2 instanceof Map) {
-                        compareMaps((Map<String, Object>) value1, (Map<String, Object>) value2, differences, path + key + ".");
+                        compareMaps((Map<String, Object>) value1, (Map<String, Object>) value2, differences,
+                                path + key + ".");
                     } else {
                         Map<String, Object> changedMap = new LinkedHashMap<>();
                         changedMap.put("key", path + key);
