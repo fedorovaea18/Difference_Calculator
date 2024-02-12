@@ -4,7 +4,6 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.Callable;
@@ -32,7 +31,7 @@ class App implements Callable<Integer> {
     public Integer call() throws Exception {
         Path file1 = Paths.get(filepath1).toAbsolutePath().normalize();
         Path file2 = Paths.get(filepath2).toAbsolutePath().normalize();
-        String diff = Differ.generate(new File(file1.toString()), new File(file2.toString()));
+        String diff = Differ.generate(file1.toString(), file2.toString());
         System.out.println(diff);
         return 0;
     }
