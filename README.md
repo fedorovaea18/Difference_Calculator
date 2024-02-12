@@ -7,3 +7,5 @@
 [![asciicast](https://asciinema.org/a/2QoKdI7dUoOG9Iw0KPHat0TJa.svg)](https://asciinema.org/a/2QoKdI7dUoOG9Iw0KPHat0TJa)
 ### Сравнение плоских файлов (yaml)
 [![asciicast](https://asciinema.org/a/sUcDhFDavRjhl5nibZh33S6sx.svg)](https://asciinema.org/a/sUcDhFDavRjhl5nibZh33S6sx)
+### Обработка данных по умолчанию (stylish)
+[![asciicast](https://asciinema.org/a/iNG1o4t7yAPQYF4EmASt8QXFY.svg)](https://asciinema.org/a/iNG1o4t7yAPQYF4EmASt8QXFY)
