@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 class App implements Callable<Integer> {
 
     @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format [default: stylish]")
-    private String format;
+    private String formatName;
 
     @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
     private boolean versionInfoRequested;
@@ -31,7 +31,7 @@ class App implements Callable<Integer> {
     public Integer call() throws Exception {
         Path file1 = Paths.get(filepath1).toAbsolutePath().normalize();
         Path file2 = Paths.get(filepath2).toAbsolutePath().normalize();
-        String diff = Differ.generate(file1.toString(), file2.toString());
+        String diff = Differ.generate(file1.toString(), file2.toString(), formatName);
         System.out.println(diff);
         return 0;
     }
