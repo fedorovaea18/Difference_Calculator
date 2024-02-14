@@ -11,3 +11,5 @@
 [![asciicast](https://asciinema.org/a/iNG1o4t7yAPQYF4EmASt8QXFY.svg)](https://asciinema.org/a/iNG1o4t7yAPQYF4EmASt8QXFY)
 ### Плоский формат (plain)
 [![asciicast](https://asciinema.org/a/2Xlhu503pJne6pvMLxI38Rn3Q.svg)](https://asciinema.org/a/2Xlhu503pJne6pvMLxI38Rn3Q)
+### Вывод в json
+[![asciicast](https://asciinema.org/a/9NfNVg4N3lOCyDuoqL46YFAIG.svg)](https://asciinema.org/a/9NfNVg4N3lOCyDuoqL46YFAIG)
