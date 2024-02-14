@@ -34,23 +34,19 @@ public class Differ {
             if (map1.containsKey(key) && !map2.containsKey(key)) {
                 map.put("key", key);
                 map.put("oldValue", map1.get(key));
-                map.put("status", "removed");
                 map.put("type", "removed");
             } else if (!map1.containsKey(key) && map2.containsKey(key)) {
                 map.put("key", key);
                 map.put("newValue", map2.get(key));
-                map.put("status", "added");
                 map.put("type", "added");
             } else if (!Objects.equals(map1.get(key), map2.get(key))) {
                 map.put("key", key);
                 map.put("oldValue", map1.get(key));
                 map.put("newValue", map2.get(key));
-                map.put("status", "updated");
                 map.put("type", "updated");
             } else {
                 map.put("key", key);
                 map.put("oldValue", map1.get(key));
-                map.put("status", "unchanged");
                 map.put("type", "unchanged");
             }
             result.add(map);

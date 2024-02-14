@@ -17,13 +17,11 @@ public class Parser {
                 objectMapper = new ObjectMapper();
                 break;
             case "yml":
-            case "yaml":
                 objectMapper = new ObjectMapper(new YAMLFactory());
                 break;
             default:
                 throw new Error("Unknown format");
         }
-
         return objectMapper.readValue(file, new TypeReference<Map<String, Object>>() { });
     }
 }
