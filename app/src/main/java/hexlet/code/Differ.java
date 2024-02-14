@@ -21,11 +21,11 @@ public class Differ {
         Map<String, Object> map1 = Parser.parse(data1, fileType1);
         Map<String, Object> map2 = Parser.parse(data2, fileType2);
 
-        List<Map<String, Object>> result = differ(map1, map2);
+        List<Map<String, Object>> result = comparator(map1, map2);
         return Formatter.formatName(result, formatName);
     }
 
-    public static List<Map<String, Object>> differ(Map<String, Object> map1, Map<String, Object> map2) {
+    public static List<Map<String, Object>> comparator(Map<String, Object> map1, Map<String, Object> map2) {
         List<Map<String, Object>> result = new ArrayList<>();
         Set<String> keysSet = new TreeSet<>(map1.keySet());
         keysSet.addAll(map2.keySet());
@@ -61,7 +61,7 @@ public class Differ {
 
     public static String getFileType(String filepath) {
         String fileName = getData(filepath);
-        int dotIndex = fileName.lastIndexOf(".");
-        return fileName.substring(dotIndex + 1);
+        int index = fileName.lastIndexOf(".");
+        return fileName.substring(index + 1);
     }
 }

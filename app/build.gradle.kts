@@ -25,9 +25,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.4")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     implementation ("info.picocli:picocli:4.7.5")
-    implementation ("com.fasterxml.jackson.core:jackson-databind:2.14.2")
     implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2")
+    testImplementation ("org.assertj:assertj-core:3.21.0")
 }
+
 
 tasks.test {
     useJUnitPlatform()

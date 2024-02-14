@@ -1,32 +1,57 @@
 package hexlet.code;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class ComparisonTest {
-    private final String path1 = "src/test/resources/filepath1.json";
-    private final String path2 = "src/test/resources/filepath2.json";
-    private final String format = "json";
 
-    @Test
-    public void testGenerate() throws Exception {
-        // Read the expected result from the file
-        String expected = Files.readString(getExpectedPath());
+    private static final String FILE_PATH_1 = "./src/test/resources/filepath3.";
+    private static final String FILE_PATH_2 = "./src/test/resources/filepath4.";
 
-        // Generate the diff using the Differ.generate() method
-        String diff = Differ.generate(path1, path2, format);
+    private static String expectedResultStylish;
+    private static String expectedResultPlain;
+    private static String expectedResultJson;
 
-        // Compare the generated diff with the expected result
-        assertEquals(expected, diff);
+    private static Path getAbsolutePath(String testResultFile) {
+        return Paths.get("./src/test/resources/", testResultFile).toAbsolutePath().normalize();
     }
 
-    private Path getExpectedPath() {
-        String expectedFilename = "expectedResult." + format;
-        return Paths.get("src/test/resources/", expectedFilename).toAbsolutePath().normalize();
+    private static String readFile(String testFile) throws Exception {
+        Path testPath = getAbsolutePath(testFile);
+        return Files.readString(testPath).trim();
+    }
+
+    public ComparisonTest() throws Exception {
+        expectedResultJson = readFile("expectedResultJson.json");
+        expectedResultStylish = readFile("expectedResultStylish.json");
+        expectedResultPlain = readFile("expectedResultPlain.json");
+    }
+
+    @Test
+    void testDefault() throws Exception {
+        String result = Differ.generate(FILE_PATH_1 + "json", FILE_PATH_2 + "json", "stylish");
+        assertThat(result).isEqualToIgnoringWhitespace(expectedResultStylish);
+    }
+
+    @Test
+    void testStylish() throws Exception {
+        String result = Differ.generate(FILE_PATH_1 + "json", FILE_PATH_2 + "json", "stylish");
+        assertThat(result).isEqualToIgnoringWhitespace(expectedResultStylish);
+    }
+
+    @Test
+    void testPlain() throws Exception {
+        String result = Differ.generate(FILE_PATH_1 + "json", FILE_PATH_2 + "json", "plain");
+        assertThat(result).isEqualToIgnoringWhitespace(expectedResultPlain);
+    }
+
+    @Test
+    void testJson() throws Exception {
+        String result = Differ.generate(FILE_PATH_1 + "json", FILE_PATH_2 + "json", "json");
+        assertThat(result).isEqualToIgnoringWhitespace(expectedResultJson);
     }
 }
