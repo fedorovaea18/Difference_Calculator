@@ -31,6 +31,7 @@ public class Plain {
                             .append("\n");
                     break;
                 default:
+                    result.append("");
                     break;
             }
         }

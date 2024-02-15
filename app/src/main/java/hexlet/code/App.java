@@ -4,8 +4,8 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
+import java.io.IOException;
 import java.util.concurrent.Callable;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true, version = "1.0",
@@ -28,10 +28,8 @@ class App implements Callable<Integer> {
     private String filepath2;
 
     @Override
-    public Integer call() throws Exception {
-        Path file1 = Paths.get(filepath1).toAbsolutePath().normalize();
-        Path file2 = Paths.get(filepath2).toAbsolutePath().normalize();
-        String diff = Differ.generate(file1.toString(), file2.toString(), formatType);
+    public Integer call() throws IOException {
+        String diff = Differ.generate(filepath1, filepath2, formatType);
         System.out.println(diff);
         return 0;
     }
