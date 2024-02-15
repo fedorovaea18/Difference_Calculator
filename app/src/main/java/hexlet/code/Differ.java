@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Differ {
+
     public static String generate(String filePath1, String filePath2, String formatType) throws Exception {
         String data1 = getData(filePath1);
         String data2 = getData(filePath2);
