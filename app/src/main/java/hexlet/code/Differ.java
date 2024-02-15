@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -21,6 +22,7 @@ public class Differ {
         List<Map<String, Object>> result = CompareMaps.comparator(map1, map2);
         return Formatter.format(result, formatType);
     }
+
     public static String generate(String filePath1, String filePath2) throws Exception {
         return generate(filePath1, filePath2, "stylish");
     }
@@ -32,8 +34,10 @@ public class Differ {
     }
 
     public static String getFileType(String filepath) {
-        String fileName = getData(filepath);
+        File file = new File(filepath);
+        String fileName = file.getName();
         int index = fileName.lastIndexOf(".");
         return fileName.substring(index + 1);
     }
 }
+

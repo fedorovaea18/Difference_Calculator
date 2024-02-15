@@ -9,15 +9,15 @@ import java.nio.file.Paths;
 
 public class ComparisonTest {
 
-    private static final String FILE_PATH_1 = "./filepath3.";
-    private static final String FILE_PATH_2 = "./filepath4.";
+    private static final String FILE_PATH_1 = "/file1.";
+    private static final String FILE_PATH_2 = "/file2.";
 
     private static String expectedResultStylish;
     private static String expectedResultPlain;
     private static String expectedResultJson;
 
     private static Path getAbsolutePath(String testResultFile) {
-        return Paths.get("./src/test/resources/", testResultFile).toAbsolutePath().normalize();
+        return Paths.get("./src/test/resources/fixtures/", testResultFile).toAbsolutePath().normalize();
     }
 
     private static String readFile(String testFile) throws Exception {

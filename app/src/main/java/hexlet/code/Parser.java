@@ -10,7 +10,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 public class Parser {
     public static Map<String, Object> parse(String filePath, String fileType) throws IOException {
-        File file = new File(filePath);
+        File file = new File("./src/test/resources/fixtures/" + filePath);
         ObjectMapper objectMapper;
         switch (fileType) {
             case "json":
