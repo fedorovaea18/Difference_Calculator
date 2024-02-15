@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 
 public class ComparisonTest {
 
-    private static final String FILE_PATH_1 = "./src/test/resources/filepath3.";
-    private static final String FILE_PATH_2 = "./src/test/resources/filepath4.";
+    private static final String FILE_PATH_1 = "./filepath3.";
+    private static final String FILE_PATH_2 = "./filepath4.";
 
     private static String expectedResultStylish;
     private static String expectedResultPlain;
@@ -26,9 +26,9 @@ public class ComparisonTest {
     }
 
     public ComparisonTest() throws Exception {
-        expectedResultJson = readFile("expectedResultJson.json");
         expectedResultStylish = readFile("expectedResultStylish.json");
         expectedResultPlain = readFile("expectedResultPlain.json");
+        expectedResultJson = readFile("expectedResultJson.json");
     }
 
     @Test
