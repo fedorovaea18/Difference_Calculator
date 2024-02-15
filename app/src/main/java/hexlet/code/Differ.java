@@ -17,7 +17,7 @@ public class Differ {
         Map<String, Object> map2 = Parser.parse(data2, fileType2);
 
         List<Map<String, Object>> result = CompareMaps.comparator(map1, map2);
-        return Formatter.formatName(result, formatName);
+        return Formatter.format(result, formatName);
     }
 
     public static String getData(String filepath) {
