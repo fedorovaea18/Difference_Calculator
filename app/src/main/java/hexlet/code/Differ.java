@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Differ {
-    public static String generate(String filePath1, String filePath2, String formatName) throws Exception {
+    public static String generate(String filePath1, String filePath2, String formatType) throws Exception {
         String data1 = getData(filePath1);
         String data2 = getData(filePath2);
 
@@ -17,7 +17,7 @@ public class Differ {
         Map<String, Object> map2 = Parser.parse(data2, fileType2);
 
         List<Map<String, Object>> result = CompareMaps.comparator(map1, map2);
-        return Formatter.format(result, formatName);
+        return Formatter.format(result, formatType);
     }
 
     public static String getData(String filepath) {
