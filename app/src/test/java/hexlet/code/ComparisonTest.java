@@ -2,7 +2,7 @@ package hexlet.code;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -25,51 +25,51 @@ public class ComparisonTest {
         return Files.readString(testPath).trim();
     }
 
-    @BeforeAll
-    public static void beforeAll() throws Exception {
+    @BeforeEach
+    public void beforeEach() throws Exception {
         expectedResultStylish = readFile("expectedResultStylish.txt");
         expectedResultPlain = readFile("expectedResultPlain.txt");
         expectedResultJson = readFile("expectedResultJson.json");
     }
 
     @Test
-    void testJSONtoStylish() throws Exception {
+    public void testJSONtoStylish() throws Exception {
         String result = Differ.generate(FILE_PATH_1, FILE_PATH_2, "stylish");
         assertThat(result).isEqualToIgnoringWhitespace(expectedResultStylish);
     }
 
     @Test
-    void testYMLtoStylish2() throws Exception {
+    public void testYMLtoStylish2() throws Exception {
         String result = Differ.generate(FILE_PATH_3, FILE_PATH_4, "stylish");
         assertThat(result).isEqualToIgnoringWhitespace(expectedResultStylish);
     }
 
     @Test
-    void testJSONtoPlain() throws Exception {
+    public void testJSONtoPlain() throws Exception {
         String result = Differ.generate(FILE_PATH_1, FILE_PATH_2, "plain");
         assertThat(result).isEqualToIgnoringWhitespace(expectedResultPlain);
     }
 
     @Test
-    void testYMLtoPlain() throws Exception {
+    public void testYMLtoPlain() throws Exception {
         String result = Differ.generate(FILE_PATH_3, FILE_PATH_4, "plain");
         assertThat(result).isEqualToIgnoringWhitespace(expectedResultPlain);
     }
 
     @Test
-    void testJSONtoJson() throws Exception {
+    public void testJSONtoJson() throws Exception {
         String result = Differ.generate(FILE_PATH_1, FILE_PATH_2, "json");
         assertThat(result).isEqualToIgnoringWhitespace(expectedResultJson);
     }
 
     @Test
-    void testYMLtoJson() throws Exception {
+    public void testYMLtoJson() throws Exception {
         String result = Differ.generate(FILE_PATH_3, FILE_PATH_4, "json");
         assertThat(result).isEqualToIgnoringWhitespace(expectedResultJson);
     }
 
     @Test
-    void testGenerateDefault() throws Exception {
+    public void testGenerateDefault() throws Exception {
         String result1 = Differ.generate(FILE_PATH_1, FILE_PATH_2);
         String result2 = Differ.generate(FILE_PATH_3, FILE_PATH_4);
         assertThat(result1).isEqualToIgnoringWhitespace(expectedResultStylish);
