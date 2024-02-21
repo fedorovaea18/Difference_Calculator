@@ -1,8 +1,7 @@
 package hexlet.code;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +12,10 @@ import java.nio.file.Paths;
 public class ComparisonTest {
 
     private static final String TEST_PATH = "./src/test/resources/fixtures/";
-    private static final String FILE_PATH_1 = "/file1.json";
-    private static final String FILE_PATH_2 = "/file2.json";
-    private static final String FILE_PATH_3 = "/file1.yml";
-    private static final String FILE_PATH_4 = "/file2.yml";
+    private static final String FILE_PATH_1 = "file1.json";
+    private static final String FILE_PATH_2 = "file2.json";
+    private static final String FILE_PATH_3 = "file1.yml";
+    private static final String FILE_PATH_4 = "file2.yml";
 
     private static String expectedResultStylish;
     private static String expectedResultPlain;
@@ -84,5 +83,12 @@ public class ComparisonTest {
         assertNotNull(result2);
         assertFalse(result1.isEmpty());
         assertFalse(result2.isEmpty());
+    }
+
+    @Test
+    public void testData() {
+        String filepath = TEST_PATH + FILE_PATH_1;
+        String result = Differ.getData(filepath);
+        assertEquals(FILE_PATH_1, result);
     }
 }
