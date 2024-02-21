@@ -40,4 +40,3 @@ public class Differ {
         return fileName.substring(index + 1);
     }
 }
-

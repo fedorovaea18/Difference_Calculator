@@ -1,6 +1,8 @@
 package hexlet.code;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -72,5 +74,15 @@ public class ComparisonTest {
         String result2 = Differ.generate(FILE_PATH_3, FILE_PATH_4);
         assertThat(result1).isEqualToIgnoringWhitespace(expectedResultStylish);
         assertThat(result2).isEqualToIgnoringWhitespace(expectedResultStylish);
+    }
+
+    @Test
+    public void testGenerate() throws Exception {
+        String result1 = Differ.generate(FILE_PATH_1, FILE_PATH_2);
+        String result2 = Differ.generate(FILE_PATH_3, FILE_PATH_4);
+        assertNotNull(result1);
+        assertNotNull(result2);
+        assertFalse(result1.isEmpty());
+        assertFalse(result2.isEmpty());
     }
 }
