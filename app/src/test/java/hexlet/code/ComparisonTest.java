@@ -2,7 +2,7 @@ package hexlet.code;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -25,8 +25,8 @@ public class ComparisonTest {
         return Files.readString(testPath).trim();
     }
 
-    @BeforeEach
-    public void beforeEach() throws Exception {
+    @BeforeAll
+    public static void beforeAll() throws Exception {
         expectedResultStylish = readFile("expectedResultStylish.txt");
         expectedResultPlain = readFile("expectedResultPlain.txt");
         expectedResultJson = readFile("expectedResultJson.json");
