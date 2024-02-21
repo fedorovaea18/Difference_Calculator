@@ -6,11 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class ComparisonTest {
 
+    private static final String TEST_PATH = "./src/test/resources/fixtures/";
     private static final String FILE_PATH_1 = "/file1.json";
     private static final String FILE_PATH_2 = "/file2.json";
     private static final String FILE_PATH_3 = "/file1.yml";
@@ -20,16 +20,14 @@ public class ComparisonTest {
     private static String expectedResultPlain;
     private static String expectedResultJson;
 
-    private static String readFile(String testFile) throws Exception {
-        Path testPath = Paths.get("./src/test/resources/fixtures/", testFile).toAbsolutePath().normalize();
-        return Files.readString(testPath).trim();
-    }
-
     @BeforeEach
-    public void beforeEach() throws Exception {
-        expectedResultStylish = readFile("expectedResultStylish.txt");
-        expectedResultPlain = readFile("expectedResultPlain.txt");
-        expectedResultJson = readFile("expectedResultJson.json");
+    public final void beforeEach() throws Exception {
+        expectedResultStylish = Files.readString(Paths.get(TEST_PATH + "expectedResultStylish.txt")
+                .toAbsolutePath().normalize()).trim();
+        expectedResultPlain = Files.readString(Paths.get(TEST_PATH + "expectedResultPlain.txt")
+                .toAbsolutePath().normalize()).trim();
+        expectedResultJson = Files.readString(Paths.get(TEST_PATH + "expectedResultJson.json")
+                .toAbsolutePath().normalize()).trim();
     }
 
     @Test
