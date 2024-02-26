@@ -19,8 +19,7 @@ public class Formatter {
             case "json":
                 return Json.json(differences);
             default:
-                System.out.println("Format" + formatType + "is not correct!");
+                throw new RuntimeException("Format" + formatType + "is not correct!");
         }
-        return Stylish.stylish(differences);
     }
 }

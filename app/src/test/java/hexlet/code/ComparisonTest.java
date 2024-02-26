@@ -8,16 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class ComparisonTest {
 
-    private static final String TEST_PATH = "./src/test/resources/fixtures/";
-    private static final String FILE_PATH_1 = "file1.json";
-    private static final String FILE_PATH_2 = "file2.json";
-    private static final String FILE_PATH_3 = "file1.yml";
-    private static final String FILE_PATH_4 = "file2.yml";
+    private static final String FILE_PATH_1 = "./src/test/resources/fixtures/file1.json";
+    private static final String FILE_PATH_2 = "./src/test/resources/fixtures/file2.json";
+    private static final String FILE_PATH_3 = "./src/test/resources/fixtures/file1.yml";
+    private static final String FILE_PATH_4 = "./src/test/resources/fixtures/file2.yml";
 
     private static String expectedResultStylish;
     private static String expectedResultPlain;
@@ -25,12 +25,9 @@ public class ComparisonTest {
 
     @BeforeEach
     public final void beforeEach() throws Exception {
-        expectedResultStylish = Files.readString(Paths.get(TEST_PATH + "expectedResultStylish.txt")
-                .toAbsolutePath().normalize()).trim();
-        expectedResultPlain = Files.readString(Paths.get(TEST_PATH + "expectedResultPlain.txt")
-                .toAbsolutePath().normalize()).trim();
-        expectedResultJson = Files.readString(Paths.get(TEST_PATH + "expectedResultJson.json")
-                .toAbsolutePath().normalize()).trim();
+        expectedResultStylish = Differ.getData("./src/test/resources/fixtures/expectedResultStylish.txt");
+        expectedResultPlain = Differ.getData("./src/test/resources/fixtures/expectedResultPlain.txt");
+        expectedResultJson = Differ.getData("./src/test/resources/fixtures/expectedResultJson.json");
     }
 
     @Test
@@ -88,9 +85,16 @@ public class ComparisonTest {
     }
 
     @Test
-    public void testData() {
-        String filepath = TEST_PATH + FILE_PATH_1;
-        String result = Differ.getData(filepath);
-        assertEquals(FILE_PATH_1, result);
+    public void testGetData() throws IOException {
+        String actualContent = Differ.getData(FILE_PATH_1);
+        String expectedContent = Files.readString(Paths.get(FILE_PATH_3));
+        assertThat(expectedContent).isEqualToIgnoringWhitespace(actualContent);
+    }
+
+    @Test
+    public void testGetFileType() {
+        String expectedType = "json";
+        String actualType = Differ.getFileType(FILE_PATH_1);
+        assertEquals(expectedType, actualType);
     }
 }

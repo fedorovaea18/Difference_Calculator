@@ -26,7 +26,6 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     implementation ("info.picocli:picocli:4.7.5")
     implementation ("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.3")
-    //implementation("org.skyscreamer:jsonassert:1.5.0")
     testImplementation ("org.assertj:assertj-core:3.21.0")
 }
 

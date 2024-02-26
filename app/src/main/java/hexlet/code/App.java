@@ -14,12 +14,6 @@ class App implements Callable<Integer> {
     @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format [default: stylish]")
     private String formatType;
 
-    @Option(names = {"-V", "--version"}, versionHelp = true, description = "Print version information and exit.")
-    private boolean versionInfoRequested;
-
-    @Option(names = {"-h", "--help"}, usageHelp = true, description = "Show this help message and exit.")
-    private boolean usageHelpRequested;
-
     @Parameters(index = "0", paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
 
