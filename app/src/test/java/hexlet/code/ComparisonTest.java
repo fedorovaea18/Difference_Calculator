@@ -94,7 +94,7 @@ public class ComparisonTest {
     @Test
     public void testGetFileType() {
         String expectedType = "json";
-        String actualType = Differ.getFileType(FILE_PATH_1);
+        String actualType = Differ.getFormatType(FILE_PATH_1);
         assertEquals(expectedType, actualType);
     }
 }
