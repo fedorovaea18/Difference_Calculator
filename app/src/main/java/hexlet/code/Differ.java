@@ -13,10 +13,10 @@ public class Differ {
         String data1 = getData(file1);
         String data2 = getData(file2);
 
-        Map<String, Object> map1 = Parser.parse(data1, getFileType(file1));
-        Map<String, Object> map2 = Parser.parse(data2, getFileType(file2));
+        Map<String, Object> map1 = Parser.parse(data1, getFormatType(file1));
+        Map<String, Object> map2 = Parser.parse(data2, getFormatType(file2));
 
-        List<Map<String, Object>> result = TreeBuilder.genTree(map1, map2);
+        List<Map<String, Object>> result = TreeBuilder.generateTree(map1, map2);
         return Formatter.format(result, formatType);
     }
 
@@ -29,7 +29,7 @@ public class Differ {
         return Files.readString(path);
     }
 
-    public static String getFileType(String filepath) {
+    public static String getFormatType(String filepath) {
         return filepath.substring(filepath.lastIndexOf(".") + 1);
     }
 }

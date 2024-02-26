@@ -8,9 +8,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 public class Parser {
-    public static Map<String, Object> parse(String data, String fileType) throws IOException {
+    public static Map<String, Object> parse(String data, String formatType) throws IOException {
         ObjectMapper objectMapper;
-        switch (fileType) {
+        switch (formatType) {
             case "json":
                 objectMapper = new ObjectMapper();
                 break;

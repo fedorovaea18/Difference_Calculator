@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class TreeBuilder {
-    public static List<Map<String, Object>> genTree(Map<String, Object> map1, Map<String, Object> map2) {
+    public static List<Map<String, Object>> generateTree(Map<String, Object> map1, Map<String, Object> map2) {
         List<Map<String, Object>> result = new ArrayList<>();
         Set<String> keysSet = new TreeSet<>(map1.keySet());
         keysSet.addAll(map2.keySet());
