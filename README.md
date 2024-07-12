@@ -3,10 +3,12 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/799baa6542d6f91f7791/maintainability)](https://codeclimate.com/github/fedorovaea18/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/799baa6542d6f91f7791/test_coverage)](https://codeclimate.com/github/fedorovaea18/java-project-71/test_coverage)
 [![GitHub Actions Status](https://github.com/fedorovaea18/java-project-71/actions/workflows/main.yml/badge.svg)](https://github.com/fedorovaea18/java-project-71/actions)
+
 This project is a program that determines the difference between two data structures.
+
 Utility features:
 - Supporting different input formats: yaml and json
-- Generation a report in the form of plain text, stylish and json.
+- Generation a report in the form of plain text, stylish (default) and json.
 
 **Examples of using:**
 
