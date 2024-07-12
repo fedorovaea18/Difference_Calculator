@@ -5,8 +5,8 @@
 [![GitHub Actions Status](https://github.com/fedorovaea18/java-project-71/actions/workflows/main.yml/badge.svg)](https://github.com/fedorovaea18/java-project-71/actions)
 
 This project is a program that determines the difference between two data structures.
-Utility features:
-- Supporting different input formats: yaml and json
+
+Utility features:- Supporting different input formats: yaml and json
 - Generation a report in the form of plain text, stylish (default) and json.
 
 **Examples of using:**
