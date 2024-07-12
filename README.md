@@ -13,16 +13,21 @@ Utility features:
 **Examples of usage:**
 
 **Example of comparing JSON files**
+
 [![asciicast](https://asciinema.org/a/2QoKdI7dUoOG9Iw0KPHat0TJa.svg)](https://asciinema.org/a/2QoKdI7dUoOG9Iw0KPHat0TJa)
 
 **Example of comparing YML files**
+
 [![asciicast](https://asciinema.org/a/sUcDhFDavRjhl5nibZh33S6sx.svg)](https://asciinema.org/a/sUcDhFDavRjhl5nibZh33S6sx)
 
 **Output in stylish format**
+
 [![asciicast](https://asciinema.org/a/iNG1o4t7yAPQYF4EmASt8QXFY.svg)](https://asciinema.org/a/iNG1o4t7yAPQYF4EmASt8QXFY)
 
 **Output in plain Format**
+
 [![asciicast](https://asciinema.org/a/2Xlhu503pJne6pvMLxI38Rn3Q.svg)](https://asciinema.org/a/2Xlhu503pJne6pvMLxI38Rn3Q)
 
 **Output in JSON format**
+
 [![asciicast](https://asciinema.org/a/9NfNVg4N3lOCyDuoqL46YFAIG.svg)](https://asciinema.org/a/9NfNVg4N3lOCyDuoqL46YFAIG)
