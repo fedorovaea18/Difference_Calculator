@@ -10,7 +10,7 @@ Utility features:
 - Supporting different input formats: yaml and json
 - Generation a report in the form of plain text, stylish (default) and json.
 
-***Examples of usage:***
+***Examples of usage:** 
 
 ### Сравнение плоских json файлов
 [![asciicast](https://asciinema.org/a/2QoKdI7dUoOG9Iw0KPHat0TJa.svg)](https://asciinema.org/a/2QoKdI7dUoOG9Iw0KPHat0TJa)
